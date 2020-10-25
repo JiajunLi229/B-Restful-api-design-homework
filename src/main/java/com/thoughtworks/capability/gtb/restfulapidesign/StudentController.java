@@ -28,7 +28,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> showStudentList() {
-        return studentService.showStudentList();
+    public List<Student> showStudentList(@RequestParam(name = "gender", required = false) String gender) {
+        return studentService.showStudentList(gender);
     }
 }

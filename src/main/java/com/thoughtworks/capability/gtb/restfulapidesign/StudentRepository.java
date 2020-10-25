@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Data
@@ -16,8 +17,11 @@ public class StudentRepository {
         studentList.add(new Student(1, "Jiajun", "male", "mfker"));
     }
 
-    public List<Student> showStudentList() {
-        return studentList;
+    public List<Student> showStudentList(String gender) {
+        if (gender == null) {
+            return studentList;
+        }
+        return studentList.stream().filter(student -> student.getGender().equals(gender)).collect(Collectors.toList());
     }
 
     public void addStudent(Student student) {

@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class StudentService {
         studentRepository.deleteStudent(studentId);
     }
 
-    public List<Student> showStudentList() {
-        return studentRepository.showStudentList();
+    public List<Student> showStudentList(String gender) {
+        return studentRepository.showStudentList(gender);
     }
 }
