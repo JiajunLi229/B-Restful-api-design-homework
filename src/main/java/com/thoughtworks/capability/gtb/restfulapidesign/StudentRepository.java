@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
+import javax.management.InstanceNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,6 +31,15 @@ public class StudentRepository {
 
     public void deleteStudent(Integer studentID) {
         studentList.removeIf(student -> student.getId().equals(studentID));
+    }
+
+        public Student getSingleStudent(Integer studentID) throws Exception {
+        for (Student student: studentList) {
+            if (student.getId().equals(studentID)) {
+                return student;
+            }
+        }
+        throw new InstanceNotFoundException();
     }
 
 }

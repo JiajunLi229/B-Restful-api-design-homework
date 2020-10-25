@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.management.InstanceNotFoundException;
 import java.util.List;
 
 @Service
@@ -25,5 +26,9 @@ public class StudentService {
 
     public List<Student> showStudentList(String gender) {
         return studentRepository.showStudentList(gender);
+    }
+
+    public Student getSingleStudent(Integer studentID) throws Exception {
+        return studentRepository.getSingleStudent(studentID);
     }
 }

@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.InstanceNotFoundException;
 import java.util.List;
 
 @RestController
@@ -30,5 +31,10 @@ public class StudentController {
     @GetMapping
     public List<Student> showStudentList(@RequestParam(name = "gender", required = false) String gender) {
         return studentService.showStudentList(gender);
+    }
+
+    @GetMapping("/{id}")
+    public Student getSingleStudent(@PathVariable("id") Integer studentID) throws Exception {
+        return studentService.getSingleStudent(studentID);
     }
 }
