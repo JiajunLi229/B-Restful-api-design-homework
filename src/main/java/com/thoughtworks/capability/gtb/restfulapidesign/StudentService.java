@@ -31,4 +31,8 @@ public class StudentService {
     public Student getSingleStudent(Integer studentID) throws Exception {
         return studentRepository.getSingleStudent(studentID);
     }
+
+    public Student updateStudent(Integer id, Student student) throws Exception {
+        return studentRepository.updateStudent(id, student);
+    }
 }

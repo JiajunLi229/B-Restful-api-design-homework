@@ -22,6 +22,11 @@ public class StudentController {
         studentService.addStudent(student);
     }
 
+    @PutMapping("/{id}")
+    public Student updateStudent(@PathVariable int id, @RequestBody Student student) throws Exception {
+        return studentService.updateStudent(id, student);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteStudent(@PathVariable int id) {

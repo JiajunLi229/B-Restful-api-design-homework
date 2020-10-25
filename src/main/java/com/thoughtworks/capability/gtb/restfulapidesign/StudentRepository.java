@@ -42,4 +42,23 @@ public class StudentRepository {
         throw new InstanceNotFoundException();
     }
 
+    public Student updateStudent(Integer id, Student student) throws Exception {
+        String studentUpdatedName = student.getName();
+        String studentUpdatedGender = student.getGender();
+        String studentUpdatedNote = student.getNote();
+        for (Student existedStudent: studentList) {
+            if (existedStudent.getId().equals(id)) {
+                existedStudent.setName(studentUpdatedName);
+                existedStudent.setGender(studentUpdatedGender);
+                existedStudent.setNote(studentUpdatedNote);
+                return existedStudent;
+            }
+        }
+        throw new InstanceNotFoundException();
+    }
+
+    private String newStudentName(Student student) {
+        return student.getName();
+    }
+
 }
