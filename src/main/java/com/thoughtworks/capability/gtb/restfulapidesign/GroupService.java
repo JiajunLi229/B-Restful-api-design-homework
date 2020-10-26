@@ -1,7 +1,9 @@
 package com.thoughtworks.capability.gtb.restfulapidesign;
+
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Group;
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.stereotype.Service;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -36,4 +38,12 @@ public class GroupService {
     public List<Student> getStoredStudent(Integer id) {
         return groupRepository.getStoredStudent(id);
     }
+
+    public Group changeGroupName(Integer id, String name) {
+        return groupRepository.changeGroupName(id, name);
+    }
+
+    public List<Group> getGroupList() {return groupRepository.getGroupList();}
 }
+
+

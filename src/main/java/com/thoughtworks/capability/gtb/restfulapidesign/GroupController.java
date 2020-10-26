@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.gtb.restfulapidesign;
 
+import com.thoughtworks.capability.gtb.restfulapidesign.domain.Group;
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,11 @@ public class GroupController {
         this.groupService = groupService;
     }
 
+    @GetMapping
+    public List<Group> getGroupList() {
+        return groupService.getGroupList();
+    }
+
     @GetMapping("/{id}")
     public List<Student> getStoredStudent(@PathVariable("id") Integer id) {
         return groupService.getStoredStudent(id);
@@ -22,5 +28,10 @@ public class GroupController {
     @PatchMapping
     public void groupAllocation() {
         groupService.groupAllocation();
+    }
+
+    @PostMapping("/{id}")
+    public Group changeGroupName (@PathVariable Integer id, @RequestParam (name = "name") String name) {
+        return groupService.changeGroupName(id, name);
     }
 }

@@ -38,4 +38,13 @@ public class GroupRepository {
 
     }
 
+    public Group changeGroupName (Integer id, String name) {
+        Group returnedGroup = groupList.stream().filter(group -> group.getId().equals(id)).findFirst().orElse(null);
+        if (returnedGroup != null) {
+            returnedGroup.setName(name);
+        }
+        return returnedGroup;
+    }
+
+
 }
