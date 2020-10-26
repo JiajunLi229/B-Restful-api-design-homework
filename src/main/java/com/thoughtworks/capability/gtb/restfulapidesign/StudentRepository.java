@@ -12,10 +12,18 @@ import java.util.stream.Collectors;
 @Service
 @Data
 public class StudentRepository {
+
     private static final List<Student> studentList = new ArrayList<>();
 
     private StudentRepository() {
         studentList.add(new Student(1, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(2, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(3, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(4, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(5, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(6, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(7, "Jiajun", "male", "mfker"));
+        studentList.add(new Student(8, "Jiajun", "male", "mfker"));
     }
 
     public List<Student> showStudentList(String gender) {
@@ -33,8 +41,8 @@ public class StudentRepository {
         studentList.removeIf(student -> student.getId().equals(studentID));
     }
 
-        public Student getSingleStudent(Integer studentID) throws Exception {
-        for (Student student: studentList) {
+    public Student getSingleStudent(Integer studentID) throws Exception {
+        for (Student student : studentList) {
             if (student.getId().equals(studentID)) {
                 return student;
             }
@@ -46,7 +54,7 @@ public class StudentRepository {
         String studentUpdatedName = student.getName();
         String studentUpdatedGender = student.getGender();
         String studentUpdatedNote = student.getNote();
-        for (Student existedStudent: studentList) {
+        for (Student existedStudent : studentList) {
             if (existedStudent.getId().equals(id)) {
                 existedStudent.setName(studentUpdatedName);
                 existedStudent.setGender(studentUpdatedGender);
@@ -57,8 +65,5 @@ public class StudentRepository {
         throw new InstanceNotFoundException();
     }
 
-    private String newStudentName(Student student) {
-        return student.getName();
-    }
 
 }
