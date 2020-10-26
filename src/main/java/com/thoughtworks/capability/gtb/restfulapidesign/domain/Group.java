@@ -1,9 +1,7 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.domain;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 @Data
@@ -18,10 +16,4 @@ public class Group {
     public List<Student> getStudentList() {
         return studentList;
     }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
-
-
 }

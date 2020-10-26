@@ -34,8 +34,6 @@ public class GroupRepository {
     public List<Student> getStoredStudent(Integer id) {
 
         return groupList.stream().filter(group -> group.getId().equals(id)).map(Group::getStudentList).findFirst().orElse(null);
-
-
     }
 
     public Group changeGroupName (Integer id, String name) {
@@ -45,6 +43,5 @@ public class GroupRepository {
         }
         return returnedGroup;
     }
-
 
 }
